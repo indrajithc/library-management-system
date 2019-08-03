@@ -31,7 +31,16 @@ Route::namespace('Admin')->prefix('admin')->middleware(  'auth.admin')->name('ad
 });
 
 Route::namespace('Librarian')->prefix('librarian')->middleware(  'auth.librarian')->name('librarian.')->group(function(){
-    Route::resource('/users', "UserController" , [
+    Route::resource('/category', "BookCategoryController" , [
+        'except' => ['show' ]
+    ]);
+
+     Route::resource('/shelf', "ShelfController" , [
+        'except' => ['show' ]
+    ]);
+
+
+     Route::resource('/book', "BookController" , [
         'except' => ['show' ]
     ]);
 });

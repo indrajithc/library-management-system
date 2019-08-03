@@ -190,34 +190,84 @@
 @if (  Auth::user()->type == "librarian"  )
                                 
                    
+                
+                          
+                             
+                            <li class="nav-item">
+                            	<a class="nav-link"  href="{{ route('home') }}"href="#dashboard-dropdown" aria-expanded="false" aria-controls="dashboard-dropdown">
+                            		<i class="menu-icon mdi  mdi-view-dashboard"></i>
+                            		<span class="menu-title">Dashboard</span> 
+                            	</a>
+                            	 
+                            </li>
 
-                   <li class="nav-item">
-                   	<a class="nav-link"  href="{{ route('admin.users.index') }}"href="#dashboard-dropdown" aria-expanded="false" aria-controls="dashboard-dropdown">
-                   		<i class="menu-icon mdi mdi-television"></i>
-                   		<span class="menu-title"></span> 
-                   	</a>
-                   	 
-                   </li>
          
 
   <li class="nav-item">
-  	<a class="nav-link" data-toggle="collapse" href="#dashboard-dropdown" aria-expanded="false" aria-controls="dashboard-dropdown">
-  		<i class="menu-icon mdi mdi-television"></i>
-  		<span class="menu-title">User</span>
+  	<a class="nav-link" data-toggle="collapse" href="#Category-dropdown" aria-expanded="false" aria-controls="Category-dropdown">
+  		<i class="menu-icon mdi  mdi-source-fork"></i>
+  		<span class="menu-title">Category</span>
   		<i class="menu-arrow fas fa-angle-right"></i>
   	</a>
-  	<div class="collapse" id="dashboard-dropdown">
+  	<div class="collapse" id="Category-dropdown">
   		<ul class="nav flex-column sub-menu">
   			<li class="nav-item">
-  				<a class="nav-link"  href="{{ route('admin.users.create') }}">New</a>
+  				<a class="nav-link"  href="{{ route('librarian.category.create') }}">New</a>
               </li> 
               
   			<li class="nav-item">
-  				<a class="nav-link"  href="{{ route('admin.users.index') }}">View</a>
+  				<a class="nav-link"  href="{{ route('librarian.category.index') }}">View</a>
   			</li> 
   		</ul>
   	</div>
   </li>
+
+
+         
+
+  <li class="nav-item">
+  	<a class="nav-link" data-toggle="collapse" href="#shelf-dropdown" aria-expanded="false" aria-controls="shelf-dropdown">
+  		<i class="menu-icon mdi   mdi-table-edit"></i>
+  		<span class="menu-title">Shelf</span>
+  		<i class="menu-arrow fas fa-angle-right"></i>
+  	</a>
+  	<div class="collapse" id="shelf-dropdown">
+  		<ul class="nav flex-column sub-menu">
+  			<li class="nav-item">
+  				<a class="nav-link"  href="{{ route('librarian.shelf.create') }}">New</a>
+              </li> 
+              
+  			<li class="nav-item">
+  				<a class="nav-link"  href="{{ route('librarian.shelf.index') }}">View</a>
+  			</li> 
+  		</ul>
+  	</div>
+  </li>
+
+
+
+
+         
+
+  <li class="nav-item">
+  	<a class="nav-link" data-toggle="collapse" href="#book-dropdown" aria-expanded="false" aria-controls="book-dropdown">
+  		<i class="menu-icon mdi   mdi-book"></i>
+  		<span class="menu-title">Book</span>
+  		<i class="menu-arrow fas fa-angle-right"></i>
+  	</a>
+  	<div class="collapse" id="book-dropdown">
+  		<ul class="nav flex-column sub-menu">
+  			<li class="nav-item">
+  				<a class="nav-link"  href="{{ route('librarian.book.create') }}">New</a>
+              </li> 
+              
+  			<li class="nav-item">
+  				<a class="nav-link"  href="{{ route('librarian.book.index') }}">View</a>
+  			</li> 
+  		</ul>
+  	</div>
+  </li>
+
 
 
     @endif
