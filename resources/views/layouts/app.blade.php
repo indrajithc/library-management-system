@@ -80,7 +80,7 @@
                                         
                                         <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
 										 
-											<a class="dropdown-item"    onclick="event.preventDefault();
+											<a class="dropdown-item  cursor-pointer"    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }} </a>
 
@@ -124,32 +124,103 @@
 
 
 
+
+
+
  
 
+                            @if (  Auth::user()->type == "admin"  )
+                              
+                          
+                             
+                            <li class="nav-item">
+                            	<a class="nav-link"  href="{{ route('home') }}"href="#dashboard-dropdown" aria-expanded="false" aria-controls="dashboard-dropdown">
+                            		<i class="menu-icon mdi  mdi-view-dashboard"></i>
+                            		<span class="menu-title">Dashboard</span> 
+                            	</a>
+                            	 
+                            </li>
 
 
-
-
-                                        <li class="nav-item">
-	<a class="nav-link" data-toggle="collapse" href="#dashboard-dropdown" aria-expanded="false" aria-controls="dashboard-dropdown">
-		<i class="menu-icon mdi mdi-television"></i>
-		<span class="menu-title">User</span>
+<li class="nav-item">
+	<a class="nav-link" data-toggle="collapse" href="#Librarian-dropdown" aria-expanded="false" aria-controls="Librarian-dropdown">
+		<i class="menu-icon mdi mdi-account"></i>
+		<span class="menu-title">Librarian</span>
 		<i class="menu-arrow fas fa-angle-right"></i>
 	</a>
-	<div class="collapse" id="dashboard-dropdown">
+	<div class="collapse" id="Librarian-dropdown">
 		<ul class="nav flex-column sub-menu">
 			<li class="nav-item">
-				<a class="nav-link"  href="{{ route('admin.users.create') }}">New</a>
+				<a class="nav-link"  href="{{ route('admin.users.create') }}">Add New</a>
             </li> 
             
 			<li class="nav-item">
-				<a class="nav-link"  href="{{ route('admin.users.index') }}">View</a>
+				<a class="nav-link"  href="{{ route('admin.users.index') }}">View All</a>
 			</li> 
 		</ul>
 	</div>
 </li>
 
 
+
+
+<li class="nav-item">
+	<a class="nav-link" data-toggle="collapse" href="#students-dropdown" aria-expanded="false" aria-controls="students-dropdown">
+		<i class="menu-icon mdi mdi-account"></i>
+		<span class="menu-title">Student</span>
+		<i class="menu-arrow fas fa-angle-right"></i>
+	</a>
+	<div class="collapse" id="students-dropdown">
+		<ul class="nav flex-column sub-menu">
+			<li class="nav-item">
+				<a class="nav-link"  href="{{ route('admin.students.create') }}">Add New</a>
+            </li> 
+            
+			<li class="nav-item">
+				<a class="nav-link"  href="{{ route('admin.students.index') }}">View All</a>
+			</li> 
+		</ul>
+	</div>
+</li>
+
+
+  @endif
+
+
+@if (  Auth::user()->type == "librarian"  )
+                                
+                   
+
+                   <li class="nav-item">
+                   	<a class="nav-link"  href="{{ route('admin.users.index') }}"href="#dashboard-dropdown" aria-expanded="false" aria-controls="dashboard-dropdown">
+                   		<i class="menu-icon mdi mdi-television"></i>
+                   		<span class="menu-title"></span> 
+                   	</a>
+                   	 
+                   </li>
+         
+
+  <li class="nav-item">
+  	<a class="nav-link" data-toggle="collapse" href="#dashboard-dropdown" aria-expanded="false" aria-controls="dashboard-dropdown">
+  		<i class="menu-icon mdi mdi-television"></i>
+  		<span class="menu-title">User</span>
+  		<i class="menu-arrow fas fa-angle-right"></i>
+  	</a>
+  	<div class="collapse" id="dashboard-dropdown">
+  		<ul class="nav flex-column sub-menu">
+  			<li class="nav-item">
+  				<a class="nav-link"  href="{{ route('admin.users.create') }}">New</a>
+              </li> 
+              
+  			<li class="nav-item">
+  				<a class="nav-link"  href="{{ route('admin.users.index') }}">View</a>
+  			</li> 
+  		</ul>
+  	</div>
+  </li>
+
+
+    @endif
 
 
 

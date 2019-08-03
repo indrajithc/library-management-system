@@ -25,6 +25,9 @@ Route::namespace('Admin')->prefix('admin')->middleware(  'auth.admin')->name('ad
     Route::resource('/users', "UserController" , [
         'except' => ['show' ]
     ]);
+     Route::resource('/students', "StudentController" , [
+        'except' => ['show' ]
+    ]);
 });
 
 Route::namespace('Librarian')->prefix('librarian')->middleware(  'auth.librarian')->name('librarian.')->group(function(){

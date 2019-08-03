@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">View All Student</div>
+                <div class="card-header">View All Librarian</div>
 
                 <div class="card-body">
                     
@@ -25,13 +25,13 @@
       <td>{{ $user->email }}</td> 
       <td class="d-flex">
 
-      <a href="{{ route('admin.users.edit', $user->id) }}">
+      <a href="{{ route('admin.students.edit', $user->id) }}">
       <button type="button" class="btn btn-sm btn-primary">Edit</button>
       </a>
 
                           
 
-      <form method="POST" action="{{ route('admin.users.destroy',   $user->id ) }}">
+      <form method="POST" action="{{ route('admin.students.destroy',   $user->id ) }}">
                         @csrf
                         {{ method_field('DELETE')}}
 

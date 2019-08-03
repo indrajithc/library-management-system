@@ -19,7 +19,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view( 'admin.users.index')->with('users', User::all());
+        return view( 'admin.users.index')->with('users', User::select()->where('type', "librarian")->get());
     }
 
     /**
@@ -39,6 +39,65 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+
+
+private function send_mail($to, $subject, $message) {
+
+    // Always set content-type when sending HTML email
+                        $headers = "MIME-Version: 1.0"."\r\n";
+                        $headers .= "Content-type:text/html;charset=UTF-8"."\r\n";
+
+    // More headers
+                        $headers .= 'From: Rit <noreply@rit.ac.in>'."\r\n";
+
+
+                        // if (mail($to, $subject, $message, $headers)) {
+                        //  return 1;
+                        // } else {
+                        //  return 0;
+                        // }
+
+                        require_once("classes/class.phpmailer.php");
+
+
+     // include the class name
+
+
+            $mail = new PHPMailer(); // create a new object
+            $mail->IsSMTP(); // enable SMTP
+            $mail->SMTPDebug = 1; // debugging: 1 = errors and messages, 2 = messages only
+            $mail->SMTPAuth = true; // authentication enabled
+            $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for GMail
+            $mail->Host = "smtp.gmail.com";
+            $mail->Port = 465; // or 587 465 465
+            $mail->IsHTML(true);
+            $mail->Username = "test@test.com";
+            $mail->Password ="test";
+            $mail->SetFrom("admin@lms.com");
+            $mail->Subject = $subject;
+
+            $mail->Body = $message;
+            $mail->AddAddress($to);//here mailid is fetched from the database
+            //$mail->AddAttachment($file_name);
+            if($mail->Send()) {
+                return 1;
+            } else {
+                return 0;
+            }
+            
+
+
+
+
+        }
+
+
+
+
+
+
+
     public function store(Request $request)
     {
         //
@@ -53,17 +112,19 @@ class UserController extends Controller
         }
 
         if($is_exi) { 
-          return  redirect()->route( 'admin.users.create')->with( 'warning',  "email" ); 
+          return  redirect()->route( 'admin.users.create')->with( 'warning',  "email already exists" ); 
         }  
  
 
  
         User::create([
             'name' => $request->name,
-            'type' => $request->type,
+            'type' => "librarian",
             'email' => $request->email,
             'password' => Hash::make($request->password)
         ]);
+
+
  
  
 
@@ -114,7 +175,7 @@ class UserController extends Controller
         $user = User::find($id);
 
         $user->name=$request->name;
-        $user->type=$request->type;
+        // $user->type=$request->type;
         $user->email=$request->email;
 
 
