@@ -117,7 +117,10 @@
 								<ul class="nav">
 								 
 
+<li  class="nav-item pl-2 py-3 text-center">
+	<span class="ml-3 text-uppercase text-primary text-center w-100">  {{ Auth::user()->type }} view</span>
 
+</li>
 
 
 

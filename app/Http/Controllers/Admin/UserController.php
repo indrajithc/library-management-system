@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 
 use App\User;
 use Illuminate\Support\Facades\Auth;
@@ -61,7 +62,7 @@ class UserController extends Controller
             'name' => $request->name,
             'type' => $request->type,
             'email' => $request->email,
-            'password' => $request->password
+            'password' => Hash::make($request->password)
         ]);
  
  

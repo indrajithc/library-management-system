@@ -26,3 +26,10 @@ Route::namespace('Admin')->prefix('admin')->middleware(  'auth.admin')->name('ad
         'except' => ['show' ]
     ]);
 });
+
+Route::namespace('Librarian')->prefix('librarian')->middleware(  'auth.librarian')->name('librarian.')->group(function(){
+    Route::resource('/users', "UserController" , [
+        'except' => ['show' ]
+    ]);
+});
+
