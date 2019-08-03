@@ -71,6 +71,7 @@ foreach ($booksd as $key => $value) {
          foreach ($categories as $key => $value) {
             
              if( 
+                $value->book_id == $request->book_id &&     
                 $value->name == $request->name &&     
                 $value->author == $request->author &&     
                 $value->edition == $request->edition      

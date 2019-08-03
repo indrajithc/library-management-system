@@ -43,5 +43,9 @@ Route::namespace('Librarian')->prefix('librarian')->middleware(  'auth.librarian
      Route::resource('/book', "BookController" , [
         'except' => ['show' ]
     ]);
+
+     Route::resource('/student', "StudentBookController" , [
+        'except' => ['show' ]
+    ]);
 });
 

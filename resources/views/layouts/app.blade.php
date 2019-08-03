@@ -80,7 +80,7 @@
                                         
                                         <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
 										 
-											<a class="dropdown-item  cursor-pointer"    onclick="event.preventDefault();
+											<a class="dropdown-item  cursor-pointer"  style="cursor: pointer;"  onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }} </a>
 
@@ -250,22 +250,44 @@
          
 
   <li class="nav-item">
-  	<a class="nav-link" data-toggle="collapse" href="#book-dropdown" aria-expanded="false" aria-controls="book-dropdown">
-  		<i class="menu-icon mdi   mdi-book"></i>
-  		<span class="menu-title">Book</span>
-  		<i class="menu-arrow fas fa-angle-right"></i>
-  	</a>
-  	<div class="collapse" id="book-dropdown">
-  		<ul class="nav flex-column sub-menu">
-  			<li class="nav-item">
-  				<a class="nav-link"  href="{{ route('librarian.book.create') }}">New</a>
+    <a class="nav-link" data-toggle="collapse" href="#book-dropdown" aria-expanded="false" aria-controls="book-dropdown">
+      <i class="menu-icon mdi   mdi-book"></i>
+      <span class="menu-title">Book</span>
+      <i class="menu-arrow fas fa-angle-right"></i>
+    </a>
+    <div class="collapse" id="book-dropdown">
+      <ul class="nav flex-column sub-menu">
+        <li class="nav-item">
+          <a class="nav-link"  href="{{ route('librarian.book.create') }}">New</a>
               </li> 
               
-  			<li class="nav-item">
-  				<a class="nav-link"  href="{{ route('librarian.book.index') }}">View</a>
-  			</li> 
-  		</ul>
-  	</div>
+        <li class="nav-item">
+          <a class="nav-link"  href="{{ route('librarian.book.index') }}">View</a>
+        </li> 
+      </ul>
+    </div>
+  </li>
+
+
+         
+
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="collapse" href="#student-dropdown" aria-expanded="false" aria-controls="student-dropdown">
+      <i class="menu-icon mdi   mdi-account-star"></i>
+      <span class="menu-title">Assign Books</span>
+      <i class="menu-arrow fas fa-angle-right"></i>
+    </a>
+    <div class="collapse" id="student-dropdown">
+      <ul class="nav flex-column sub-menu">
+        <li class="nav-item">
+          <a class="nav-link"  href="{{ route('librarian.student.create') }}">Assign</a>
+              </li> 
+              
+        <li class="nav-item">
+          <a class="nav-link"  href="{{ route('librarian.student.index') }}">View All</a>
+        </li> 
+      </ul>
+    </div>
   </li>
 
 
@@ -282,37 +304,20 @@
 
  
 
-                            @if (  Auth::user()->type == "student"  )
+                            @if (  Auth::user()->type == "students"  )
                               
                           
                              
                             <li class="nav-item">
                             	<a class="nav-link"  href="{{ route('home') }}"href="#dashboard-dropdown" aria-expanded="false" aria-controls="dashboard-dropdown">
                             		<i class="menu-icon mdi  mdi-view-dashboard"></i>
-                            		<span class="menu-title">Dashboard</span> 
+                            		<span class="menu-title">View Books</span> 
                             	</a>
                             	 
                             </li>
 
 
-<li class="nav-item">
-	<a class="nav-link" data-toggle="collapse" href="#Librarian-dropdown" aria-expanded="false" aria-controls="Librarian-dropdown">
-		<i class="menu-icon mdi mdi-account"></i>
-		<span class="menu-title">Librarian</span>
-		<i class="menu-arrow fas fa-angle-right"></i>
-	</a>
-	<div class="collapse" id="Librarian-dropdown">
-		<ul class="nav flex-column sub-menu">
-			<li class="nav-item">
-				<a class="nav-link"  href="{{ route('admin.users.create') }}">Add New</a>
-            </li> 
-            
-			<li class="nav-item">
-				<a class="nav-link"  href="{{ route('admin.users.index') }}">View All</a>
-			</li> 
-		</ul>
-	</div>
-</li>
+ 
 
 
 

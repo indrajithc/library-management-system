@@ -5,13 +5,13 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header text-capitalize">Edit {{ $books->name }} details</div>
+                <div class="card-header text-capitalize">Edit {{ $student_book["book"]["name"] }} details</div>
 
                 <div class="card-body">
                     
                     
 
-                <form method="POST" action="{{ route('librarian.book.update', ['book' => $books->id]) }}">
+                <form method="POST" action="{{ route('librarian.book.update', ['book' => $student_book['id']) }}">
                         @csrf
                         {{ method_field('PUT')}}
 
