@@ -23,6 +23,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::namespace('Admin')->prefix('admin')->middleware(  'auth.admin')->name('admin.')->group(function(){
     Route::resource('/users', "UserController" , [
-        'except' => ['show', 'create', 'store']
+        'except' => ['show' ]
     ]);
 });

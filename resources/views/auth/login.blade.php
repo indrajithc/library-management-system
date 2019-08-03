@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.app_without_login')
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="cardapp_without_login.blade">
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">

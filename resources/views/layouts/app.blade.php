@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en"  ng-app="app-admin">
 
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="Indran"> 
+ 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css" rel="stylesheet" >
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -18,65 +24,175 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
 </head>
+
+
+
+
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+	<div class="container-scroller">
+		
+
+		<nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+			<div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
+				<a style="color: #222; " class="navbar-brand brand-logo"  href="{{ url('/') }}">
                     {{ config('app.name', 'LMS') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+				</a>
+				<a style="color: #222; " class="navbar-brand brand-logo-mini"  href="{{ url('/') }}">
+                    {{ config('app.name', 'LMS') }}
+				</a>
+			</div>
+			<div class="navbar-menu-wrapper d-flex align-items-center">
+				<button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+					<i class="fas fa-bars"></i>
+				</button>
+				<ul class="navbar-nav navbar-nav-left header-links d-none d-md-flex">
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                                <a class="nav-link" href="{{ route('admin.users.index') }}">User</a>
-                            </li>
-                    </ul>
+				</ul>
+				<ul class="navbar-nav navbar-nav-right">
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
+              
+                             
+ 
+ 
+ 
+
                         @guest
-                            <li class="nav-item">
+
+                                <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
+                            </li> 
+
                             @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
+                        
+								<li class="nav-item dropdown d-none d-xl-inline-block">
+
+									<a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+										<span class="profile-text"> {{ Auth::user()->name }}</span>
+                                         
+                                        
+                                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+										 
+											<a class="dropdown-item"    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+                                        {{ __('Logout') }} </a>
 
+
+                                        
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav>
+                                        </div>
+                                        
 
-        <main class="py-4">
+                                        
+                                    </li>
+                                    
+                        @endguest
+ 
+								</ul>
+								<button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+									<span class="ti-menu"></span>
+								</button>
+							</div>
+						</nav>
+						
+
+						<div class="container-fluid page-body-wrapper">
+							
+
+
+							
+
+							
+
+							<nav class="sidebar sidebar-offcanvas" id="sidebar">
+								<ul class="nav">
+								 
+
+
+
+
+
+ 
+
+
+
+
+
+                                        <li class="nav-item">
+	<a class="nav-link" data-toggle="collapse" href="#dashboard-dropdown" aria-expanded="false" aria-controls="dashboard-dropdown">
+		<i class="menu-icon mdi mdi-television"></i>
+		<span class="menu-title">User</span>
+		<i class="menu-arrow fas fa-angle-right"></i>
+	</a>
+	<div class="collapse" id="dashboard-dropdown">
+		<ul class="nav flex-column sub-menu">
+			<li class="nav-item">
+				<a class="nav-link"  href="{{ route('admin.users.create') }}">New</a>
+            </li> 
+            
+			<li class="nav-item">
+				<a class="nav-link"  href="{{ route('admin.users.index') }}">View</a>
+			</li> 
+		</ul>
+	</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+									</ul>
+								</nav>
+
+								<div class="main-panel position-relative">
+
+
+
+
+                                <main class="mt-3"  >
+            @include('partials.alerts')
             @yield('content')
         </main>
-    </div>
+
+
+
+
+
+
+
+
+ 
+<footer class="footer">
+	<div class="container-fluid clearfix">
+		<span class="text-muted d-block text-center text-sm-left d-sm-inline-block"> Copyright © 
+		<a href="#" target="_blank">read</a>. All rights reserved.</span>
+		<span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> 
+		</span>
+	</div>
+</footer> 
+</div> 
+</div> 
+</div> 
+
+ 
+
 </body>
+
 </html>
