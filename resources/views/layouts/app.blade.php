@@ -280,6 +280,51 @@
 
 
 
+ 
+
+                            @if (  Auth::user()->type == "student"  )
+                              
+                          
+                             
+                            <li class="nav-item">
+                            	<a class="nav-link"  href="{{ route('home') }}"href="#dashboard-dropdown" aria-expanded="false" aria-controls="dashboard-dropdown">
+                            		<i class="menu-icon mdi  mdi-view-dashboard"></i>
+                            		<span class="menu-title">Dashboard</span> 
+                            	</a>
+                            	 
+                            </li>
+
+
+<li class="nav-item">
+	<a class="nav-link" data-toggle="collapse" href="#Librarian-dropdown" aria-expanded="false" aria-controls="Librarian-dropdown">
+		<i class="menu-icon mdi mdi-account"></i>
+		<span class="menu-title">Librarian</span>
+		<i class="menu-arrow fas fa-angle-right"></i>
+	</a>
+	<div class="collapse" id="Librarian-dropdown">
+		<ul class="nav flex-column sub-menu">
+			<li class="nav-item">
+				<a class="nav-link"  href="{{ route('admin.users.create') }}">Add New</a>
+            </li> 
+            
+			<li class="nav-item">
+				<a class="nav-link"  href="{{ route('admin.users.index') }}">View All</a>
+			</li> 
+		</ul>
+	</div>
+</li>
+
+
+
+ 
+
+  @endif
+
+
+
+
+
+
 
 
 									</ul>
